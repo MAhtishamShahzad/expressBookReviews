@@ -51,7 +51,8 @@ regd_users.post("/login", (req, res) => {
   });
 });
 
-regd_users.put("/auth/review/:isbn", (req, res) => {
+regd_users.put("/review/:isbn", (req, res) => {
+  console.log("vgcx");
   const isbn = parseInt(req.params.isbn);
   const review = req.query.review;
 
@@ -80,7 +81,7 @@ regd_users.put("/auth/review/:isbn", (req, res) => {
   bookReviews[username] = review;
   return res.send(`Review for ISBN ${isbn} added successfully`);
 });
-regd_users.delete("/auth/review/:isbn", (req, res) => {
+regd_users.delete("/review/:isbn", (req, res) => {
   const isbn = parseInt(req.params.isbn);
   const userId = req.session.userId;
 
